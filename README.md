@@ -1,7 +1,12 @@
 # Ethereum Arbitrary Registration Smart Contract
 This contract is capable of handling an arbitrary basic registration process. 
 
-The owner of this contract is able to open and close a registration. During open periods, applicants are able to apply with their first name, last name, school, and age. During closed periods, applicants are no longer able to apply. At any point, the owner can fetch all the current applicants. 
+The contract supports the following methods:
+- Opening & Closing. The OWNER of the contract can choose designated times when registration is open or closed.
+- Viewing Applicants. The OWNER of the contract can view all current applicants.
+- Register. A public method which allows anyone to register.
+
+Some use cases for this contract could be a Hackathon Registration, Event Resgistration, or even a Whitelist Registration. 
 
 ### Requirements:
 - Node - https://github.com/nodejs
@@ -18,11 +23,10 @@ By default, when the contract is deployed, the registration is open.
 ```
 Registration.deployed().then(a => (a.setStatus(1).then(console.log)))
 ```
-#### Register
+#### Register to the contract
 ```
 Registration.deployed().then(a => (a.register("Simon","Cheng","Basic School",2`).then(console.log)))
 ```
-
 #### View Applicants
 ```
 Registration.deployed().then(a => (a.getPeople().then(console.log)))
