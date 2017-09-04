@@ -1,24 +1,34 @@
-# Ethereum Registration Smart Contract
-
+# Ethereum Arbitrary Registration Smart Contract
 This contract is capable of handling an arbitrary basic registration process. 
 
-After the contract is deployed, the owner can open or close the registration when she/he chooses. When registration is open, applicants are able
-to apply to the contract with their first name, last name, school and age. When the registration window is closed, applicants are no longer able to apply.
-At any point, a method can be called to display all applicants.
+The owner of this contract is able to open and close a registration. During open periods, applicants are able to apply with their first name, last name, school, and age. During closed periods, applicants are no longer able to apply. At any point, the owner can fetch all the current applicants. 
 
 ### Requirements:
-
 - Node - https://github.com/nodejs
 - testRPC - https://github.com/ethereumjs/testrpc                                                                                     
 - truffle - https://github.com/trufflesuite/truffle
 
 ### Setup:
-1. Start testRPC - `testrpc`
+1. Start testRPC - `testrpc`.
 2. `cd` into the cloned directory.
 3. Compile and migrate the Registration.sol contract. - `truffle compile && truffle migrate --reset`.
 
-#### Adding people to the contract
+#### Open Registration
+By default, when the contract is deployed, registration is open.
+```
+Registration.deployed().then(a => (a.setStatus(1).then(console.log)))
+```
+#### Apply
+```
+Registration.deployed().then(a => (a.register("Simon","Cheng","Basic School",2`).then(console.log)))
+```
 
-
-
+#### View Applicants
+```
+Registration.deployed().then(a => (a.getPeople().then(console.log)))
+```
+#### Close Registration
+```
+Registration.deployed().then(a => (a.setStatus(0).then(console.log)))
+```
 
