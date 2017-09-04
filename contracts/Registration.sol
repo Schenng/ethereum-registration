@@ -2,6 +2,8 @@ pragma solidity ^0.4.4;
 
 contract Registration {
 	
+	Applicant[] public applicants;
+
 	address public owner;
 	uint public status;
 
@@ -20,39 +22,39 @@ contract Registration {
 	function register(bytes32 _firstname, bytes32 _lastname, bytes32 _school, uint _age) returns (bool success) {
 		if (status != 1) return;
 
-		Person memory newPerson;
-		newPerson.firstName = _firstname;
-		newPerson.lastName = _lastname;
-		newPerson.school = _school
-		newPerson.age = _age;	
+		Applicant memory newApplicant;
+		newApplicant.firstName = _firstname;
+		newApplicant.lastName = _lastname;
+		newApplicant.school = _school;
+		newApplicant.age = _age;	
 
-		people.push(newPerson);
+		applicants.push(newApplicant);
 		return true;
 	}
 
 	function setStatus(uint _status) returns (bool success) {
-		if (msg.sender != owner) return;
+		if (msg.sender != owner) return true;
 
         status = _status;
 	}
 
 	function getPeople() constant returns(bytes32[], bytes32[], uint[]) {
 
-		uint length = people.length;
+		uint length = applicants.length;
 
 		bytes32[] memory firstNames = new bytes32[](length);
 		bytes32[] memory lastNames = new bytes32[](length);
 		bytes32[] memory school = new bytes32[](length);
 		uint[] memory ages = new uint[](length);
 
-		for (uint i = 0; i < people.length; i++) {
-			Person memory currentPerson;
-			currentPerson = people[i];
+		for (uint i = 0; i < applicants.length; i++) {
+			Applicant memory currentApplicant;
+			currentApplicant = applicants[i];
 
-			firstNames[i] = currentPerson.firstName;
-			lastNames[i] = currentPerson.lastName;
-			school[i] = currentPerson.school;
-			ages[i] = currentPerson.age;
+			firstNames[i] = currentApplicant.firstName;
+			lastNames[i] = currentApplicant.lastName;
+			school[i] = currentApplicant.school;
+			ages[i] = currentApplicant.age;
 		}
 
 		return (firstNames, lastNames, ages);
