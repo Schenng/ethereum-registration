@@ -14,11 +14,11 @@ The owner of this contract is able to open and close a registration. During open
 3. Compile and migrate the Registration.sol contract. - `truffle compile && truffle migrate --reset`.
 
 #### Open Registration
-By default, when the contract is deployed, registration is open.
+By default, when the contract is deployed, the registration is open.
 ```
 Registration.deployed().then(a => (a.setStatus(1).then(console.log)))
 ```
-#### Registering
+#### Register
 ```
 Registration.deployed().then(a => (a.register("Simon","Cheng","Basic School",2`).then(console.log)))
 ```
