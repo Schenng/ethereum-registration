@@ -18,7 +18,7 @@ By default, when the contract is deployed, registration is open.
 ```
 Registration.deployed().then(a => (a.setStatus(1).then(console.log)))
 ```
-#### Apply
+#### Registering
 ```
 Registration.deployed().then(a => (a.register("Simon","Cheng","Basic School",2`).then(console.log)))
 ```
