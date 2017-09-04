@@ -1,11 +1,10 @@
 pragma solidity ^0.4.4;
 
 contract Registration {
-	
-	Applicant[] public applicants;
-
 	address public owner;
 	uint public status;
+
+	Applicant[] public applicants;
 
 	struct Applicant {
 		bytes32 firstName;
@@ -34,12 +33,10 @@ contract Registration {
 
 	function setStatus(uint _status) returns (bool success) {
 		if (msg.sender != owner) return true;
-
         status = _status;
 	}
 
 	function getPeople() constant returns(bytes32[], bytes32[], uint[]) {
-
 		uint length = applicants.length;
 
 		bytes32[] memory firstNames = new bytes32[](length);
@@ -59,5 +56,4 @@ contract Registration {
 
 		return (firstNames, lastNames, ages);
 	}
-	
 }
