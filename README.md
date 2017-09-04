@@ -3,7 +3,7 @@ This contract is capable of handling an arbitrary basic registration process.
 
 The contract supports the following methods:
 - Opening & Closing. The OWNER of the contract can choose designated times when registration is open or closed.
-- Viewing Applicants. The OWNER of the contract can view all current applicants.
+- Viewing Applicants. View all applicants on the contract.
 - Register. A public method which allows anyone to register.
 
 Some use cases for this contract could be a Hackathon Registration, Event Resgistration, or even a Whitelist Registration. 
