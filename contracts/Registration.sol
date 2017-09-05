@@ -36,12 +36,12 @@ contract Registration {
         status = _status;
 	}
 
-	function getPeople() constant returns(bytes32[], bytes32[], uint[]) {
+	function getPeople() constant returns(bytes32[], bytes32[], bytes32[], uint[]) {
 		uint length = applicants.length;
 
 		bytes32[] memory firstNames = new bytes32[](length);
 		bytes32[] memory lastNames = new bytes32[](length);
-		bytes32[] memory school = new bytes32[](length);
+		bytes32[] memory schools = new bytes32[](length);
 		uint[] memory ages = new uint[](length);
 
 		for (uint i = 0; i < applicants.length; i++) {
@@ -50,10 +50,10 @@ contract Registration {
 
 			firstNames[i] = currentApplicant.firstName;
 			lastNames[i] = currentApplicant.lastName;
-			school[i] = currentApplicant.school;
+			schools[i] = currentApplicant.school;
 			ages[i] = currentApplicant.age;
 		}
 
-		return (firstNames, lastNames, ages);
+		return (firstNames, lastNames, schools, ages);
 	}
 }
