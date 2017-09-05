@@ -18,6 +18,9 @@ Some use cases for this contract could be a Hackathon Registration, Event Resgis
 2. `cd` into the cloned directory.
 3. Compile and migrate the Registration.sol contract. - `truffle compile && truffle migrate --reset`.
 
+### Methods:
+All methods are through the truffle console. `truffle console`.
+
 #### Open Registration
 By default, when the contract is deployed, the registration is open.
 ```
