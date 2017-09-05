@@ -2,7 +2,7 @@
 This contract is capable of handling an arbitrary basic registration process. 
 
 The contract supports the following methods:
-- **Opening & Closing**. The OWNER of the contract can choose designated times when registration is open or closed.
+- **Opening & Closing**. The OWNER of the contract can choose designated registration times.
 - **Viewing Applicants**. View all applicants on the contract.
 - **Register**. A public method which allows anyone to register.
 
